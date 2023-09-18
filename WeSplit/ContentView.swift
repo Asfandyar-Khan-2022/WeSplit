@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    // the @State Saves the variable somehere so that it can be accessed later
-    @State private var name = ""
+    let students = ["Harry", "Hermione", "Rone"]
+    @State private var selectedStudent = "Harry"
     
-    /// This body creates a form with an input and a text row.
     var body: some View {
-        Form {
-            
-            // The $ symbol means that we read and write to name. This is two way binding.
-            TextField("Enter your name", text: $name)
-            Text("Your name is \(name)")
+        NavigationView {
+            Form {
+                Picker("Select your student", selection: $selectedStudent) {
+                    ForEach(students, id: \.self) {
+                        Text($0)
+                    }
+                }
+            }
         }
     }
 }
