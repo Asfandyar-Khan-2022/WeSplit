@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    // the @State Saves the variable somehere so that it can be accessed later
     @State private var name = ""
     
     /// This body creates a form with an input and a text row.
