@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tapCount = 0
+    @State private var name = ""
     
+    /// This body creates a form with an input and a text row.
     var body: some View {
-        Button("Tap Count: \(tapCount)") {
-            tapCount += 1
+        Form {
+            
+            // The $ symbol means that we read and write to name. This is two way binding.
+            TextField("Enter your name", text: $name)
+            Text("Your name is \(name)")
         }
     }
 }
